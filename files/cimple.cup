@@ -90,6 +90,7 @@ non terminal FnBodyNode       fnBody;
 non terminal LinkedList	      stmtList;
 non terminal StmtNode	      stmt;	      
 non terminal TypeNode         type;
+non terminal ExpNode		  loc;
 non terminal IdNode           id;
 
  
@@ -204,6 +205,16 @@ stmt		::=
 		:}
 		;
 
+assignExp		::= loc:l ASSIGN exp:e
+			{: RESULT = new AssignNode(l, e);
+			:}
+			;
+
+exp			::= assignExp:ae
+		{:
+		:}
+		;
+
 type            ::= INT
                 {: RESULT = new IntNode();
                 :}
@@ -217,6 +228,14 @@ type            ::= INT
 		{: RESULT = new StructNode(i);
 		:}
 		;
+
+loc 		::= id:i
+			{: RESULT = new 
+			:}
+			::= loc:l DOT id:i
+			{: RESULT = new DotAccessExpNode(l, i);
+			:}
+			;
 
 id              ::= ID:i
                 {: RESULT = new IdNode(i.linenum, i.charnum, i.idVal);
