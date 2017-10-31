@@ -8,39 +8,39 @@
 ###
 
 JC = javac
-CP = ~cs536-1/public/tools/deps_src/java-cup-11b.jar:~cs536-1/public/tools/deps_src/java-cup-11b-runtime.jar:~cs536-1/public/tools/deps:.
-CP2 = ~cs536-1/public/tools/deps:.
+CP = ../deps_src/java-cup-11b.jar:../deps_src/java-cup-11b-runtime.jar:../deps_src:.
+FLAGS = -g -cp $(CP)
 
 P3.class: P3.java parser.class Yylex.class ASTnode.class
-	$(JC)    P3.java
+	$(JC) $(FLAGS)  P3.java
 
 parser.class: parser.java ASTnode.class Yylex.class ErrMsg.class
-	$(JC)      parser.java
+	$(JC) $(FLAGS) parser.java
 
 parser.java: cimple.cup
-	java   java_cup.Main < cimple.cup
+	java -cp $(CP)  java_cup.Main < cimple.cup
 
 Yylex.class: cimple.jlex.java sym.class ErrMsg.class
-	$(JC)   cimple.jlex.java
+	$(JC) $(FLAGS)  cimple.jlex.java
 
 ASTnode.class: ast.java
-	$(JC)  ast.java
+	$(JC)  $(FLAGS)  ast.java
 
 cimple.jlex.java: cimple.jlex sym.class
-	java    JLex.Main cimple.jlex
+	java  -cp $(CP)  JLex.Main cimple.jlex
 
 sym.class: sym.java
-	$(JC)    sym.java
+	$(JC) $(FLAGS)  sym.java
 
 sym.java: cimple.cup
-	java    java_cup.Main < cimple.cup
+	java -cp $(CP)  java_cup.Main < cimple.cup
 
 ErrMsg.class: ErrMsg.java
-	$(JC) ErrMsg.java
+	$(JC) $(FLAGS) ErrMsg.java
 
 ##test
 test:
-	java   P3 test.cimple test.out
+	java -cp $(CP) P3 test.cimple test.out
 
 ###
 # clean

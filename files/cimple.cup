@@ -279,7 +279,7 @@ exp		::= assignExp:a
 		{: RESULT = new DivideNode(e1, e2);
 		:}
 		| NOT exp:e
-		{:  RESULT = new NotNode(e);
+		{: RESULT = new NotNode(e);
 		:}
 		| exp:e1 AND exp:e2
 		{: RESULT = new AndNode(e1, e2);
@@ -346,9 +346,9 @@ fncall		::= id:i LPAREN RPAREN
 		;
 
 actualList	::= exp:e
-		{: LinkedList<ExpNode> newList = new LinkedList<ExpNode>();
-		   newList.addLast(e);
-		   RESULT = newList;
+		{: LinkedList<ExpNode> a = new LinkedList<ExpNode>();
+		   a.addLast(e);
+		   RESULT = a;
 		:}
 		| actualList:a COMMA exp:e
 		{: a.addLast(e);
