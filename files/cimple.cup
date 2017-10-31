@@ -92,7 +92,7 @@ non terminal StmtNode	      stmt;
 non terminal AssignNode	      assignExp;
 non terminal ExpNode	      exp;
 non terminal ExpNode	      term;
-non terminal CallExpNode	  fncall;
+non terminal CallExpNode      fncall;
 non terminal LinkedList	      actualList;    
 non terminal TypeNode         type;
 non terminal ExpNode	      loc;
@@ -101,8 +101,21 @@ non terminal IdNode           id;
  
 /* NOTE: Add precedence and associativity declarations here */
 
+precedence right ASSIGN;
+precedence left OR;
+precedence left AND;
+precedence nonassoc LESS,GREATER,NOTEQUALS,LESSEQ,GREATEREQ,EQUALS;
+precedence left PLUS,MINUS;
+precedence left TIMES,DIVIDE;
+precedence left NOT;
+precedence left DOT, ID;//NOT SURE 
+
+
+
+
 
 start with program;
+
 
 
 /* Grammar with actions
@@ -228,7 +241,7 @@ stmt		::= assignExp:a SEMICOLON
 		{: RESULT = new ReadStmtNode(l);
 		:}
 		| COUT WRITE exp:e SEMICOLON
-		{: RESULT = new WriteStmtNode(l);
+		{: RESULT = new WriteStmtNode(e);
 		:}
 		| IF LPAREN exp:e RPAREN LCURLY varDeclList:v stmtList:s RCURLY
 		{: DeclListNode dl = new DeclListNode(v);
@@ -317,16 +330,16 @@ term		::= loc:l
 		{: RESULT = l;
 		:}
 		| INTLITERAL
-		{: RESULT = new IntLitNode();
+		{: RESULT = new IntLitNode(); //errors here
 		:}
 		| STRINGLITERAL
-		{: RESULT = new StringLitNode();
+		{: RESULT = new StringLitNode(); //errors here
 		:}		
 		| TRUE
-		{: RESULT = new TrueNode();
+		{: RESULT = new TrueNode(); //ect
 		:}		
 		| FALSE
-		{: RESULT = new FalseNode();
+		{: RESULT = new FalseNode(); //ect
 		:}		
 		| LPAREN exp:e RPAREN
 		{: RESULT = e;
@@ -371,12 +384,12 @@ type            ::= INT
 		;
 
 loc 		::= id:i
-			{: RESULT = i;
-			:}
-			| loc:l DOT id:i
-			{: RESULT = new DotAccessExpNode(l, i);
-			:}
-			;
+		{: RESULT = i;
+		:}
+		| loc:l DOT id:i
+		{: RESULT = new DotAccessExpNode(l, i);
+		:}
+		;
 
 id              ::= ID:i
                 {: RESULT = new IdNode(i.linenum, i.charnum, i.idVal);

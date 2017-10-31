@@ -489,7 +489,7 @@ class IfStmtNode extends StmtNode {
         p.print("if (");
         myExp.unparse(p, 0);
         p.print(") {");
-        p.print("\n}")
+        p.print("\n}");
         myDeclList.unparse(p, indent + 4);
         myStmtList.unparse(p, indent + 4);
         doIndent(p, indent);
@@ -646,7 +646,7 @@ class TrueNode extends ExpNode {
     }
 
     public void unparse(PrintWriter p, int indent) {
-        doIntent(p, indent);
+        doIndent(p, indent);
         p.print("true");
     }
 
