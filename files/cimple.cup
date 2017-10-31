@@ -367,7 +367,7 @@ type            ::= INT
 loc 		::= id:i
 			{: RESULT = i;
 			:}
-			::= loc:l DOT id:i
+			| loc:l DOT id:i
 			{: RESULT = new DotAccessExpNode(l, i);
 			:}
 			;
