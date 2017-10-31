@@ -126,6 +126,12 @@ declList        ::= declList:dl decl:d
 decl            ::= varDecl:v
                 {: RESULT = v;
                 :}
+				| fnDecl:f
+				{: RESULT = f;
+				:}
+				| structDecl:s
+				{: RESULT = s;
+				:}
                 ;
 
 varDeclList	::= varDeclList:vl varDecl:v
