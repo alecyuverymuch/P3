@@ -331,8 +331,7 @@ term		::= loc:l
 		;
 
 fncall		::= id:i LPAREN RPAREN
-		{: ExpListNode l = new ExpListNode();
-		   RESULT = new CallExpNode(i, l)
+		{: RESULT = new CallExpNode(i);
 		:}
 		| id:i LPAREN actualList:a RPAREN
 		{: ExpListNode l = new ExpListNode(a);
