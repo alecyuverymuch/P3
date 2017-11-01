@@ -211,7 +211,7 @@ class StmtListNode extends ASTnode {
             while (it.hasNext()) {
                 ((StmtNode)it.next()).unparse(p, indent);
                 if (it.hasNext()){
-                    //p.print("\n");
+                    p.print("\n");
                 }
             }
         } catch (NoSuchElementException ex) {
@@ -561,7 +561,7 @@ class WhileStmtNode extends StmtNode {
         myStmtList.unparse(p, indent + 4);
         p.print("\n");
         doIndent(p, indent);
-        p.print("}\n");
+        p.print("}");
     }
 
     // 3 kids
@@ -813,7 +813,7 @@ class PlusNode extends BinaryExpNode {
 
     public void unparse(PrintWriter p, int indent) {
         doIndent(p, indent);
-        p.print(")");
+        p.print("(");
         myExp1.unparse(p, 0);
         p.print(" + ");
         myExp2.unparse(p, 0);
