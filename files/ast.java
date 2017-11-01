@@ -211,9 +211,8 @@ class StmtListNode extends ASTnode {
         Iterator it = myStmts.iterator();
         try {
             while (it.hasNext()) {
-                doIndent(p, indent);
+                //doIndent(p, indent);
                 ((StmtNode)it.next()).unparse(p, indent);
-                p.print("\n");
             }
         } catch (NoSuchElementException ex) {
             System.err.println("unexpected NoSuchElementException in StmtListNode.print");
