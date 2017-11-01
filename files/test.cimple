@@ -1,2 +1,10 @@
 int x;
-int y;
+bool y;
+struct z { int z1; };
+int main() { 
+    x = 1; 
+    y = true; 
+    if (y) { 
+        return; 
+    } 
+}
