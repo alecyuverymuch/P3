@@ -143,7 +143,6 @@ class DeclListNode extends ASTnode {
         try {
             while (it.hasNext()) {
                 ((DeclNode)it.next()).unparse(p, indent);
-                p.print("\n");
             }
         } catch (NoSuchElementException ex) {
             System.err.println("unexpected NoSuchElementException in DeclListNode.print");
@@ -193,7 +192,7 @@ class FnBodyNode extends ASTnode {
         myDeclList.unparse(p, indent + 4);
         myStmtList.unparse(p, indent + 4);
         doIndent(p, indent);
-        p.print("}");
+        p.print("}\n");
     }
 
     // 2 kids
