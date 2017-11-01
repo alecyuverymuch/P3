@@ -31,8 +31,8 @@ public void syntax_error(Symbol currToken) {
 terminal                INT;
 terminal                BOOL;
 terminal                VOID;
-terminal                TRUE;
-terminal                FALSE;
+terminal TokenVal       TRUE;
+terminal TokenVal       FALSE;
 terminal                STRUCT;
 terminal                CIN;
 terminal                COUT;
