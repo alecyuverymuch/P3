@@ -588,8 +588,9 @@ class ReturnStmtNode extends StmtNode {
 
     public void unparse(PrintWriter p, int indent) {
         doIndent(p, indent);
-        p.print("return ");
+        p.print("return");
         if (myExp!=null){
+            p.print(" ");
             myExp.unparse(p, 0);
         }
         p.print(";");
