@@ -1,10 +1,22 @@
 int x;
 bool y;
-struct z { int z1; };
+struct z { int z1; bool z2; };
 int main() { 
+    int a = 1 + 2 * 3 * ( 3 - 1 );
+    bool b = false;
     x = 1; 
     y = true; 
     if (y) { 
         return; 
     } 
+    if (!b) {
+        int c = 3;
+        bool d = true;
+        if (b) {
+            return c + 1;
+        }
+        else {
+            return c -1;
+        }
+    }
 }
