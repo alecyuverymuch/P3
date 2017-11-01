@@ -334,8 +334,10 @@ class StructDeclNode extends DeclNode {
         doIndent(p, indent);
         p.print("struct ");
         myId.unparse(p, 0);
-        p.print(" ");
-        myDeclList.unparse(p, 0);
+        p.print(" {\n");
+        myDeclList.unparse(p, indent + 4);
+        doIndent(p, indent);
+        p.print("};");
     }
 
     // 2 kids
