@@ -210,9 +210,7 @@ class StmtListNode extends ASTnode {
         try {
             while (it.hasNext()) {
                 ((StmtNode)it.next()).unparse(p, indent);
-                if (it.hasNext()){
-                    p.print("\n");
-                }
+                p.print("\n");
             }
         } catch (NoSuchElementException ex) {
             System.err.println("unexpected NoSuchElementException in StmtListNode.print");
