@@ -143,6 +143,7 @@ class DeclListNode extends ASTnode {
         try {
             while (it.hasNext()) {
                 ((DeclNode)it.next()).unparse(p, indent);
+                p.print("\n");
             }
         } catch (NoSuchElementException ex) {
             System.err.println("unexpected NoSuchElementException in DeclListNode.print");
