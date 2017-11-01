@@ -12,8 +12,10 @@ int main() {
         return; 
     } 
     if (!b) {
-        int c = 3;
-        bool d = true;
+        int c;
+        bool d;
+        c = 3;
+        d = true;
         if (b) {
             return c + 1;
         }
