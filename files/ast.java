@@ -142,8 +142,7 @@ class DeclListNode extends ASTnode {
         Iterator it = myDecls.iterator();
         try {
             while (it.hasNext()) {
-                doIndent(p, indent);
-                ((DeclNode)it.next()).unparse(p, 0);
+                ((DeclNode)it.next()).unparse(p, indent);
             }
         } catch (NoSuchElementException ex) {
             System.err.println("unexpected NoSuchElementException in DeclListNode.print");
@@ -210,8 +209,7 @@ class StmtListNode extends ASTnode {
         Iterator it = myStmts.iterator();
         try {
             while (it.hasNext()) {
-                doIndent(p, indent);
-                ((StmtNode)it.next()).unparse(p, 0);
+                ((StmtNode)it.next()).unparse(p, indent);
                 if (it.hasNext()){
                     p.print("\n");
                 }
