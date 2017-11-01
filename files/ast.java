@@ -211,7 +211,7 @@ class StmtListNode extends ASTnode {
         try {
             while (it.hasNext()) {
                 ((StmtNode)it.next()).unparse(p, indent);
-                if (it.hasNext(){
+                if (it.hasNext()){
                     p.print("\n");
                 }
             }
