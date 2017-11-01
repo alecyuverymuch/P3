@@ -43,7 +43,7 @@ bool func3() {
     cin >> k;
 } 
 void func4(int l) {
-    cout >> l;
+    cout << l;
 }
 void func5(int l) {
     if (l >= 6) {
