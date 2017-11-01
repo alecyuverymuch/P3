@@ -554,7 +554,6 @@ class WhileStmtNode extends StmtNode {
         p.print(") {\n");
         myDeclList.unparse(p, indent + 4);
         myStmtList.unparse(p, indent + 4);
-        p.print("\n");
         doIndent(p, indent);
         p.print("}");
     }
