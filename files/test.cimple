@@ -1,7 +1,45 @@
-int x;
-bool y;
-struct z { int z1; bool z2; };
-struct ids { int e; bool f; int g; bool h; };
+int abc1;
+int abc2;
+bool def1;
+bool def2;
+struct ghi1 { int z1; bool z2; };
+struct ghi2 { int e; bool f; int g; bool h; };
+void func1() {}
+void func2(int one) {}
+void func3(int one, int two, bool three, bool four, struct five){}
+int func4() {
+    int x;
+    x = 4;
+    return x;
+}
+int func5(int x, int i) {
+    int y;
+    int z;
+    y = 1;
+    z = 2;
+    x++;
+    x--;
+    x = 4 + 4;
+    x = 4 * 4;
+    x = 4 - 4;
+    x = 4 / 4;
+    x = y;
+    x = x + y * z - 2 * 4;
+    x = (x + y) * ((z - 2) - (2 * 4));
+    return i;
+}
+bool func6(bool x, bool y) {
+    bool z;
+    z = true;
+    z = false;
+    z = x || y;
+    z = x && y;
+    z = x && y || z;
+    z = !x;
+    z = !x || y;
+    z = !(x || (y && z));
+    return z;
+}
 int main() { 
     int a;
     bool b;
