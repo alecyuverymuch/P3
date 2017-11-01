@@ -5,7 +5,7 @@ int main() {
     int a;
     bool b;
     a = 1 + 2 * 3 * ( 3 - 1 );
-    b = false;
+    b = false || true;
     x = 1; 
     y = true; 
     if (y) { 
@@ -15,8 +15,11 @@ int main() {
         int c;
         bool d;
         c = 3;
-        d = true;
+        d = true && false;
         if (b) {
+            while (d) {
+                c++;
+            }
             return c + 1;
         }
         else {
