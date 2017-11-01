@@ -143,7 +143,7 @@ class DeclListNode extends ASTnode {
         try {
             while (it.hasNext()) {
                 doIndent(p, indent);
-                ((DeclNode)it.next()).unparse(p, indent);
+                ((DeclNode)it.next()).unparse(p, 0);
             }
         } catch (NoSuchElementException ex) {
             System.err.println("unexpected NoSuchElementException in DeclListNode.print");
@@ -165,7 +165,7 @@ class FormalsListNode extends ASTnode {
         try {
             p.print("(");
             while (it.hasNext()) {
-                ((FormalDeclNode)it.next()).unparse(p, indent);
+                ((FormalDeclNode)it.next()).unparse(p, 0);
                 if (it.hasNext()){
                     p.print(", ");
                 }
@@ -210,7 +210,8 @@ class StmtListNode extends ASTnode {
         Iterator it = myStmts.iterator();
         try {
             while (it.hasNext()) {
-                ((StmtNode)it.next()).unparse(p, indent);
+                doIndent(p, indent);
+                ((StmtNode)it.next()).unparse(p, 0);
                 if (it.hasNext()){
                     p.print("\n");
                 }
@@ -337,7 +338,7 @@ class StructDeclNode extends DeclNode {
         p.print(" {\n");
         myDeclList.unparse(p, indent + 4);
         doIndent(p, indent);
-        p.print("};");
+        p.print("};\n");
     }
 
     // 2 kids
