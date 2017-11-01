@@ -27,3 +27,22 @@ int main() {
         }
     }
 }
+int a;
+bool c;
+struct ids { int e; bool f; int g; bool h; };
+
+void func1() { int i = 6*7 + (5-2) * 8; i++; }
+
+int func2() {bool j = !(5>2); j--;}
+
+bool func3() {int k; cin >> k } 
+
+void func4(int l) {cout >> l}
+
+void func5(int l) {if(l >= 6){return true;}}
+
+int func6(int l) {if(l <= 6){return;}}
+
+bool func7(bool m,int n,int o){if(n<o){func6(o);}else{func6(n);}return 5*10;}
+
+void func8(int j, bool k, int l, bool m){while((k||m)&&true){bool x; x = 7 != 7; }return 6/7;}
