@@ -135,34 +135,78 @@ void func8(int j, bool k, int l, bool m) {
     return 6/7;
 }
 
+void func1() { 
+    int i; 
+    int j; 
+    i = 6*7 + (-2) * 8; 
+    i++; 
+}
+int func2() {
+    bool j; 
+    j = !(5>2); 
+    j--;
+}
+bool func3() {
+    int k; 
+}
 
-int a;
-int b; //tests var decl
-bool c;
-bool d;
-struct s s;
-struct ids { int e; bool f; int g; bool h; }; //tests stucts
+void func4(int l) {  
+    cout << l; 
+    cin >> k; 
+} //tests cout/cin
 
-void func1() { int i; intj; i = 6*7 + (-2) * 8; i++; } //tests -- and multiple var decl's
+void func5(int l) {
+    if(l >= 6){
+        return true;
+    }
+} //tests if statements
+int func6(int l) {
+    if(l <= 6){
+        return;
+    }
+}
 
-int func2() {bool j; j = !(5>2); j--;} //tests ++ 
+bool func7(bool m,int n,int o){
+    if(n<o){
+        func6(o);
+    }
+    else {
+        func3(); 
+        return;
+    }
+    return 5*10;
+} //tests func calls and return
 
-bool func3() {int k; }
+void func8(int j, bool k, int l, bool m){
+    while((k||m)&&true){
+        bool x; 
+        x = 7 != 7; 
+    }
+    return 6/7;
+}//tests while statements
 
-void func4(int l) {  cout << l; cin >> k; } //tests cout/cin
+int func9(int s,bool t){
+    t = !((7 + x - 5 * 4 / 2) == true) && (7 <=5 )||(7 != 7)||(7 <5 )||(7 >=5 )||(7 >5 );
+} //test almost all expr's
 
-void func5(int l) {if(l >= 6){return true;}} //tests if statements
+bool func10(bool b){
+    int x; 
+    x = b.c.v;
+} //tests loc
 
-int func6(int l) {if(l <= 6){return;}}
+bool func11(bool b){
+    int x; 
+    x = "hello" + "string"; 
+} //tests strings
 
-bool func7(bool m,int n,int o){if(n<o){func6(o);}else{func3(); return;}return 5*10;} //tests func calls and return
-
-void func8(int j, bool k, int l, bool m){while((k||m)&&true){bool x; x = 7 != 7; }return 6/7;}//tests while statements
-
-int func9(int s,bool t){t = !((7 + x - 5 * 4 / 2) == true) && (7 <=5 )||(7 != 7)||(7 <5 )||(7 >=5 )||(7 >5 );} //test almost all expr's
-
-bool func10(bool b){int x; x = b.c.v;} //tests loc
-
-bool func11(bool b){int x; x = "hello" + "string"; } //tests strings
-
-bool func11(bool b){int x; while(true || false && true){if(true){if(false){while(true){}}}}}//tests nested statements
+bool func11(bool b){
+    int x; 
+    while(true || false && true){
+        if(true){
+            if(false){
+                while(true){
+                }
+            }
+        }
+    }
+}//tests nested statements
